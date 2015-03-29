@@ -13,6 +13,7 @@
 		A30892681AC8426E00C13508 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A30892671AC8426E00C13508 /* Images.xcassets */; };
 		A308926B1AC8426E00C13508 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30892691AC8426E00C13508 /* LaunchScreen.xib */; };
 		A30892771AC8426E00C13508 /* XHHUDSampleDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30892761AC8426E00C13508 /* XHHUDSampleDemoTests.swift */; };
+		A30892811AC8429A00C13508 /* XHHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30892801AC8429A00C13508 /* XHHUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A30892701AC8426E00C13508 /* XHHUDSampleDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XHHUDSampleDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30892751AC8426E00C13508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A30892761AC8426E00C13508 /* XHHUDSampleDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XHHUDSampleDemoTests.swift; sourceTree = "<group>"; };
+		A30892801AC8429A00C13508 /* XHHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XHHUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +79,9 @@
 		A308925D1AC8426E00C13508 /* XHHUDSampleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				A30892601AC8426E00C13508 /* AppDelegate.swift */,
+				A30892801AC8429A00C13508 /* XHHUD.swift */,
 				A30892621AC8426E00C13508 /* ViewController.swift */,
 				A30892641AC8426E00C13508 /* Main.storyboard */,
-				A30892671AC8426E00C13508 /* Images.xcassets */,
-				A30892691AC8426E00C13508 /* LaunchScreen.xib */,
 				A308925E1AC8426E00C13508 /* Supporting Files */,
 			);
 			path = XHHUDSampleDemo;
@@ -90,6 +90,9 @@
 		A308925E1AC8426E00C13508 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A30892601AC8426E00C13508 /* AppDelegate.swift */,
+				A30892671AC8426E00C13508 /* Images.xcassets */,
+				A30892691AC8426E00C13508 /* LaunchScreen.xib */,
 				A308925F1AC8426E00C13508 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30892811AC8429A00C13508 /* XHHUD.swift in Sources */,
 				A30892631AC8426E00C13508 /* ViewController.swift in Sources */,
 				A30892611AC8426E00C13508 /* AppDelegate.swift in Sources */,
 			);
