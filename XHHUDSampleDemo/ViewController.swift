@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     let HUD = XHHUD()
     
     @IBAction func start(sender: AnyObject) {
-        HUD.show(view)
+        HUD.show(view: view)
     }
 
     @IBAction func end(sender: AnyObject) {

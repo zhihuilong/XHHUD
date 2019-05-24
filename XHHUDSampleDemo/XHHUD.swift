@@ -25,35 +25,30 @@ class XHHUD: UIView {
     
     private(set) var animating = false
     
-    override init() {
-        super.init()
-        self.bounds = CGRect(origin: CGPointZero, size: CGSize(width: HUDWidth , height: HUDWidth * 2.0 / sqrt(3)))
-        self.backgroundColor = UIColor.clearColor()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame:frame)
-        self.bounds = CGRect(origin: CGPointZero, size: CGSize(width: HUDWidth , height: HUDWidth * 2.0 / sqrt(3)))
-        self.backgroundColor = UIColor.whiteColor()
+        self.bounds = CGRect(origin: .zero, size: CGSize(width: HUDWidth , height: HUDWidth * 2.0 / sqrt(3)))
+        self.backgroundColor = UIColor.white
+        
     }
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(rect: CGRect) {
-        drawCircle(CGPointMake(rect.width / 2, HUDRadius), color: UIColor.kColor(246, green: 173, blue: 11))
-        drawCircle(CGPointMake(rect.width - HUDRadius, rect.height / 4 + HUDRadius/2), color: UIColor.kColor(45, green: 136, blue: 254))
-        drawCircle(CGPointMake(rect.width - HUDRadius, rect.height / 4 * 3 - HUDRadius/2), color: UIColor.kColor(44 , green: 155 , blue: 118 ))
+    override func draw(_ rect: CGRect) {
+        drawCircle(point: CGPoint(x: rect.width / 2, y: HUDRadius), color: UIColor.kColor(red: 246, green: 173, blue: 11))
+        drawCircle(point: CGPoint(x: rect.width - HUDRadius, y: rect.height / 4 + HUDRadius/2), color: UIColor.kColor(red: 45, green: 136, blue: 254))
+        drawCircle(point: CGPoint(x: rect.width - HUDRadius, y: rect.height / 4 * 3 - HUDRadius/2), color: UIColor.kColor(red: 44 , green: 155 , blue: 118 ))
         
-        drawCircle(CGPointMake(rect.width / 2, rect.height - HUDRadius), color: UIColor.kColor(239 , green: 0 , blue: 102 ))
-        drawCircle(CGPointMake(HUDRadius, rect.height / 4 * 3 - HUDRadius/2), color: UIColor.kColor(240 , green: 64 , blue: 11))
-        drawCircle(CGPointMake(HUDRadius, rect.height / 4 + HUDRadius/2), color: UIColor.kColor(44 , green: 166 , blue: 10))
+        drawCircle(point: CGPoint(x: rect.width / 2, y: rect.height - HUDRadius), color: UIColor.kColor(red: 239 , green: 0 , blue: 102 ))
+        drawCircle(point: CGPoint(x: HUDRadius, y: rect.height / 4 * 3 - HUDRadius/2), color: UIColor.kColor(red: 240 , green: 64 , blue: 11))
+        drawCircle(point: CGPoint(x: HUDRadius, y: rect.height / 4 + HUDRadius/2), color: UIColor.kColor(red: 44 , green: 166 , blue: 10))
     }
     
     private func drawCircle(point:CGPoint,color:UIColor) {
         let path = UIBezierPath()
-        path.addArcWithCenter(point , radius: HUDRadius, startAngle: 0, endAngle: 360, clockwise: true)
+        path.addArc(withCenter: point , radius: HUDRadius, startAngle: 0, endAngle: 360, clockwise: true)
         color.set()
         path.fill()
     }
@@ -67,12 +62,12 @@ class XHHUD: UIView {
         }
         animating = true
         center = superview!.center
-        bounds = CGRect(origin: CGPointZero, size: CGSize(width: HUDWidth , height: HUDWidth * 2.0 / sqrt(3)))
+        bounds = CGRect(origin: .zero, size: CGSize(width: HUDWidth , height: HUDWidth * 2.0 / sqrt(3)))
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotationAnimation.toValue = M_PI * 2
+        rotationAnimation.toValue = Double.pi * 2
         rotationAnimation.duration = 1
         rotationAnimation.repeatCount = MAXFLOAT
-        layer.addAnimation(rotationAnimation, forKey: "rotationAnimation")
+        layer.add(rotationAnimation, forKey: "rotationAnimation")
     }
     
     //hide HUD
@@ -81,9 +76,9 @@ class XHHUD: UIView {
             return
         }
         animating = false
-        layer.removeAnimationForKey("rotationAnimation")
-        UIView.animateWithDuration(0.4, animations: {
-            self.bounds = CGRectZero
+        layer.removeAnimation(forKey: "rotationAnimation")
+        UIView.animate(withDuration: 0.4, animations: {
+            self.bounds = .zero
         })
     }
 }
